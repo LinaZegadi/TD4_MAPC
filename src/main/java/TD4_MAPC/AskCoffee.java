@@ -18,7 +18,9 @@ public class AskCoffee implements DistribState {
         if (d.c >= 10) {
             System.out.println("-> Ask tea");
             d.setState(AskTea.instance());
+            d.c -= 10;
         } else
+
             System.out.println("Pas possible");
     }
 

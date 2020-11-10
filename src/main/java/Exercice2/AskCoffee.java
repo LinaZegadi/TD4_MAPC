@@ -1,39 +1,36 @@
-package TD4_MAPC;
+package Exercice2;
 
-import javax.lang.model.util.ElementScanner14;
-
-public class AskTea implements DistribState {
+public class AskCoffee implements DistribState {
 
     private static DistribState instance;
 
     public static DistribState instance() {
         if (instance == null)
-            instance = new AskTea();
+            instance = new AskCoffee();
         return instance;
     }
 
-    private AskTea() {
+    private AskCoffee() {
     }
 
     @Override
-    public void askcoffee(Distributeur1 d) {
+    public void asktea(Distributeur2 d) {
         if (d.c >= 10) {
-            System.out.println("-> Ask Coffee");
-            d.setState(AskCoffee.instance());
+            System.out.println("-> Ask tea");
+            d.setState(AskTea.instance());
             d.c -= 10;
         } else
             System.out.println("Pas possible");
     }
 
     @Override
-    public void asktea(Distributeur1 d) {
+    public void askcoffee(Distributeur2 d) {
         System.out.println("Déjà fait");
     }
 
     @Override
-    public void dontAsk(Distributeur1 d) {
+    public void dontAsk(Distributeur2 d) {
         System.out.println("Pas possible");
-
     }
 
 }

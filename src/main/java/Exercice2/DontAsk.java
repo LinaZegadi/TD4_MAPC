@@ -1,4 +1,4 @@
-package TD4_MAPC;
+package Exercice2;
 
 public class DontAsk implements DistribState {
 
@@ -14,21 +14,22 @@ public class DontAsk implements DistribState {
     }
 
     @Override
-    public void asktea(Distributeur1 d) {
+    public void asktea(Distributeur2 d) {
         System.out.println("-> Ask tea");
         d.setState(AskTea.instance());
         d.c -= 10;
     }
 
     @Override
-    public void askcoffee(Distributeur1 d) {
+    public void askcoffee(Distributeur2 d) {
         System.out.println("-> Ask Coffee");
         d.setState(AskCoffee.instance());
         d.c -= 10;
     }
 
     @Override
-    public void dontAsk(Distributeur1 d) {
+    public void dontAsk(Distributeur2 d) {
+        // TODO Auto-generated method stub
 
     }
 
