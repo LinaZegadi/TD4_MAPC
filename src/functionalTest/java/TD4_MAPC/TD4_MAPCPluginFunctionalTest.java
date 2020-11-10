@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.io.FileWriter;
 import java.nio.file.Files;
-import org.gradle.testkit.runner.GradleRunner;
-import org.gradle.testkit.runner.BuildResult;
+import org.gradle.testfixtures.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,15 +16,15 @@ import static org.junit.Assert.*;
  * A simple functional test for the 'TD4_MAPC.greeting' plugin.
  */
 public class TD4_MAPCPluginFunctionalTest {
-    @Test public void canRunTask() throws IOException {
+    private static final String GradleRunner = null;
+
+    @Test
+    public void canRunTask() throws IOException {
         // Setup the test build
         File projectDir = new File("build/functionalTest");
         Files.createDirectories(projectDir.toPath());
         writeString(new File(projectDir, "settings.gradle"), "");
-        writeString(new File(projectDir, "build.gradle"),
-            "plugins {" +
-            "  id('TD4_MAPC.greeting')" +
-            "}");
+        writeString(new File(projectDir, "build.gradle"), "plugins {" + "  id('TD4_MAPC.greeting')" + "}");
 
         // Run the build
         GradleRunner runner = GradleRunner.create();
@@ -33,7 +32,7 @@ public class TD4_MAPCPluginFunctionalTest {
         runner.withPluginClasspath();
         runner.withArguments("greeting");
         runner.withProjectDir(projectDir);
-        BuildResult result = runner.build();
+        org.gradle.BuildResult result = runner.build();
 
         // Verify the result
         assertTrue(result.getOutput().contains("Hello from plugin 'TD4_MAPC.greeting'"));
