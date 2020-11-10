@@ -15,24 +15,20 @@ public class DontAsk implements DistribState {
 
     @Override
     public void asktea(Distributeur1 d) {
-        System.out.println("Rien demandé");
+        System.out.println("-> Ask tea");
+        d.setState(AskTea.instance());
     }
 
     @Override
     public void askcoffee(Distributeur1 d) {
-        System.out.println("Rien demandé");
+        System.out.println("-> Ask Coffee");
+        d.setState(AskCoffee.instance());
     }
 
     @Override
     public void dontAsk(Distributeur1 d) {
         // TODO Auto-generated method stub
 
-    }
-
-    @Override
-    public int give(int n) {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
 }

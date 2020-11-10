@@ -1,5 +1,7 @@
 package TD4_MAPC;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class AskTea implements DistribState {
 
     private static DistribState instance;
@@ -15,8 +17,11 @@ public class AskTea implements DistribState {
 
     @Override
     public void askcoffee(Distributeur1 d) {
-        System.out.println("-> Ask Coffee");
-        d.setState(AskCoffee.instance());
+        if (d.c >= 10) {
+            System.out.println("-> Ask Coffee");
+            d.setState(AskCoffee.instance());
+        } else
+            System.out.println("Pas possible");
     }
 
     @Override
@@ -26,14 +31,8 @@ public class AskTea implements DistribState {
 
     @Override
     public void dontAsk(Distributeur1 d) {
-        // TODO Auto-generated method stub
+        System.out.println("Pas possible");
 
-    }
-
-    @Override
-    public int give(int n) {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
 }

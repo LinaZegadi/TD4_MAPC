@@ -15,25 +15,21 @@ public class AskCoffee implements DistribState {
 
     @Override
     public void asktea(Distributeur1 d) {
-        System.out.println("-> Ask tea");
-        d.setState(AskTea.instance());
+        if (d.c >= 10) {
+            System.out.println("-> Ask tea");
+            d.setState(AskTea.instance());
+        } else
+            System.out.println("Pas possible");
     }
 
     @Override
     public void askcoffee(Distributeur1 d) {
-        System.out.println("Déjà fait"); // pour l'illustration
+        System.out.println("Déjà fait");
     }
 
     @Override
     public void dontAsk(Distributeur1 d) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public int give(int n) {
-        // TODO Auto-generated method stub
-        return 0;
+        System.out.println("Pas possible");
     }
 
 }
